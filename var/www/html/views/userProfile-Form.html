@@ -1,0 +1,21 @@
+<div class="row" ng-init="getUserInfo();">
+<div class="col-sm-8 col-sm-offset-2">
+  <div id="form-container">
+    <div class="page-header text-center">
+      <h2>Enter your info</h2>
+      
+      <div id="status-buttons" class="btn-group btn-group-justified">
+        <a ui-sref=".account" class="btn btn-primary">Basic Info</a>
+        <a  ui-sref=".contact" class="btn btn-primary" ng-disabled="userForm.$invalid">Contact Info</a>
+        <a  ui-sref=".payments" class="btn btn-primary" ng-disabled="userForm.$invalid">Payment Info</a>
+      </div>
+    </div>
+    
+    <form name="userForm" ng-submit="createUser(user)">
+      <div id="form-views" ui-view></div>
+    </form>
+    
+    <!-- <pre>{{user | json}}</pre> -->
+  </div>
+</div>
+</div>

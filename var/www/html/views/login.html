@@ -1,0 +1,23 @@
+<div id="wrap">
+  <div class="container">
+    <h1 class="page-header">Login</h1>
+  </div>
+  <div class="col-md-4 col-md-offset-1">
+    <div></div>
+    <div ng-controller="LoginController">
+      <div ng-bind-html="loginMessage"></div>
+      <form name="loginForm" ng-submit="login(user)">
+        Username <input class="form-control" name="username" type="text" placeholder="username" ng-model="user.userName" required/> <br/>
+        Password <input class="form-control" name="password" type="password" placeholder="password" ng-model="user.password" hash-input required/> <br/>
+        <div class="container form-group row">
+          <div class="col-sm-6">
+            <input type="submit" class="btn btn-danger" value="Login" />
+            <a ui-sref="userProfileForm.account" class="btn btn-info">
+              Create Account
+            </a>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

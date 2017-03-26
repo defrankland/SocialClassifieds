@@ -1,0 +1,10 @@
+
+<div class="row col-md-8 col-md-offset-1" ng-init="getUserTags();">
+  <label>Tags</label>
+  <tags-input ng-model="user.tags" add-on-space="true" on-tag-added="addTag($tag)" on-tag-removed="removeTag($tag)"></tags-input>
+  
+  <a ui-sref="userHome" class="btn btn-info">
+  Done
+</a>
+</div>
+

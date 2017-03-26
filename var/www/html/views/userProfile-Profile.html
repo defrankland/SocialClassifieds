@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div id="container">
+            <div class="page-header text-center">
+                <h2>Update your Bio or Profile Image</h2>
+            </div>
+
+            <div>
+                <img class="img-rounded center-block" width="300px" ng-src="{{ user.profileImage }}" />
+                <br>
+                <div class="text-center">
+                    <form id="photoForm" name="photoForm" enctype="multipart/form-data" ng-submit="uploadPhoto()">
+                        <label class="btn btn-primary btn-file">
+                            Browse <input type="file" accept="image/*" file-model="photo.filename" style="display:none;" onchange="$('#upload-file-info').html($(this).val());"">
+                        </label>
+                        <span class="label label-primary" id="upload-file-info"></span>
+                        <button type="submit" class="btn btn-success">Upload</button>
+                    </form>
+                </div>
+            </div>
+            
+            <form name="bioForm" ng-submit="updateBio(user)">
+                <div id="form-views">
+                    <div class="form-group">
+                        <label>Bio &nbsp;&nbsp;&nbsp;
+                            <div class="label label-success" ng-bind-html="bioSuccessMessage"></div>
+                            <div class="label label-danger" ng-bind-html="bioFailMessage"></div>
+                        </label>
+                        <textarea name="bio" class="form-control" ng-model="user.bio" ng-change="bioSuccessMessage='';bioFailMessage=''"></textarea>
+                    </div>
+                    <div class="container">
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <a ui-sref="main" class="btn btn-info">Cancel</a>
+                                <button type="submit" class="btn btn-danger">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        <!-- <pre>{{user | json}}</pre> -->
+    </div>
+</div>
+</div>

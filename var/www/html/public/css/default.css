@@ -1,0 +1,9 @@
+html, body{
+    margin:0 !important;
+    padding:0 !important;
+    width:100%;
+}
+
+.navbar-nav.navbar-right:last-child{
+    margin-right:0px !important;
+}

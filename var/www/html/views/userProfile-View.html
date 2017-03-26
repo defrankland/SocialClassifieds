@@ -1,0 +1,44 @@
+<div class="row" ng-init="getCurrentUser();">
+<div class="col-sm-8 col-sm-offset-2">
+    
+    <div class="page-header">
+      <a ui-sref="contactHome" class="btn btn-info">
+        Back
+      </a>
+    </div>
+  
+    <div class="panel panel-default">
+      <div class="panel-heading" style="font-size: 20px"><strong>{{ currentUser.userName }}</strong></div>
+      <img ng-src="{{ currentUser.profileImage }}" width="500px"/> 
+      <div class="panel-body">
+        <p>Distance: {{currentUser.location}} miles away</p>
+        <p>Street Address 1: {{currentUser.address1}}</p>
+        <p>Street Address 2: {{currentUser.address2}}</p>
+        <p>City: {{currentUser.city}}</p>
+        <p>State: {{currentUser.state}}</p>
+        <p>Zip: {{currentUser.zip}}</p>
+        <p>Phone: {{currentUser.phone1}}</p>
+        <p>Email: {{currentUser.email}}</p>
+        <p>Tags:
+          <tags-input ng-model="currentUser.tags" disabled="disabled" placeholder="User's Tags"></tags-input>
+        </p>
+        <p>Active Classified Ads:
+          <table class="table table-striped">
+            <tr>
+              <th>Title</th>
+              <th>Created</th>
+              <th>Expires</th>
+            </tr>
+            <tr ng-repeat="ad in currentUser.classifieds">
+            <td><a ui-sref="adView({adId: ad.adId})">
+              {{ad.title}}
+            </a></td> 
+            <td>{{ad.created}}</td>
+            <td>{{ad.expiration}}</td>
+            </tr>
+          </table>
+        </p>
+      </div>
+    </div>
+</div>
+</div>

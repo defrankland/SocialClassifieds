@@ -1,0 +1,18 @@
+<div id="homePage" ng-if="isLoggedIn()">
+    <p style="font-size:60px">
+        Some kind of timeline/stream thing, or maybe your profile?
+    </p>
+</div>
+
+<div id="homePage" ng-if="!isLoggedIn()">
+    <div id="registrationText">
+        <p>Buy and sell goods, while building relationships in the process. Register now!</p>
+    </div>
+    <div id="registrationForm">
+        <input type="text" ng-model="user.email" placeholder="Email Address"/>
+        <div id="regButts">
+            <div class="button" id="regButt"><a href="/register/">Register</a></div>
+            <div class="button" id="anonButt"><a>Browse Anonymously</a></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+
+<!-- Post Type -->
+<div class="form-group" ng-class="{ 'has-error' : adManagementForm.postType.$invalid && adManagementForm.postType.$touched }">
+  <label>Select Type of Post to Create</label>
+  <select class="form-control" name="postType" ng-model="ad.postType" ng-change="setAdType()" required>
+    <option value="Product">Product</option>
+    <option value="Service">Service</option>
+  </select>
+  <div class="help-block" ng-messages="adManagementForm.postType.$error" ng-if="adManagementForm.postType.$touched">
+    <p ng-message="required">Ad post type is required</p>
+  </div>
+</div>
+
+<!-- Title -->
+<div class="form-group" ng-class="{ 'has-error' : adManagementForm.title.$invalid && adManagementForm.title.$touched }">
+  <label>Title</label>
+  <input type="text" name="title" class="form-control" ng-model="ad.title" required ng-maxlength="30">
+  <div class="help-block" ng-messages="adManagementForm.title.$error" ng-if="adManagementForm.title.$touched">
+    <p ng-message="required">Ad title is required</p>
+    <p ng-message="maxlength">Title must be 30 characters or less</p>
+  </div>
+</div>
+
+<!-- Quantity -->
+<div class="form-group" ng-class="{ 'has-error' : adManagementForm.quantity.$invalid && adManagementForm.quantity.$touched }">
+  <label>Quantity</label>
+  <input type="number" name="quantity" class="form-control" ng-model="ad.quantity" min="0">
+</div>
+
+<!-- Price/Rate -->
+<div class="form-group">
+  <label ng-bind="Cost">{{Cost}}</label>
+  <input type="number" name="price" class="form-control" ng-model="ad.price" ng-if="Cost=='Price'" min="0">
+  <input type="number" name="rate" class="form-control" ng-model="ad.price" ng-if="Cost=='Rate'" min="0">
+</div>
+
+<!-- Expiration -->
+<div class="form-group">
+  <label>Expiration Date</label>
+  <input type="date" name="expiration" class="form-control" ng-model="ad.expiration" ng-init="initExpiration()">
+</div>
+
+<!-- Body -->
+<div class="form-group">
+  <label>Description</label><br/>
+  <textarea rows="20" cols="80" ng-model="ad.body"></textarea>
+</div>
+
+
+<!-- CONTINUE FORM -->
+<div class="container">
+  <div class="form-group row">
+    <div class="col-sm-6">
+        <a ui-sref="adManagementForm.contactInfo" class="btn btn-info">
+        Continue
+        </a>
+    </div>
+  </div>
+</div>
+  

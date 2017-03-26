@@ -1,0 +1,92 @@
+<div class="row" ng-init="getContactRequests(); getMyContacts(); getSuggestedContacts();">
+<div class="col-sm-8 col-sm-offset-2">
+  <div id="form-container">
+    
+    <div class="page-header"></div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading" style="font-size: 20px"><strong>Pending Contact Requests</strong></div>
+      <div class="panel-body">
+        <table class="table table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Distance</th>
+            <th>Options</th>
+          </tr>
+          <tr ng-repeat="user in contactRequests">
+            <td><a ui-sref="profileView({userId: user.name})">
+              {{user.name}}
+            </a></td> 
+            <td>{{user.location}}</td>
+            <td>
+              <div ng-if="user.requestType == 'Sendee'" class="pull-right">
+                <a ui-sref="contactHome" class="btn btn-info" ng-click="acceptContactRequest(user)">
+                  Accept Contact Request
+                </a>
+                <a ui-sref="contactHome" class="btn btn-danger" ng-click="rejectContactRequest(user)">
+                  Reject Contact Request
+                </a>
+              </div>
+              <a ng-if="user.requestType == 'Sender'" ui-sref="contactHome" class="btn btn-danger pull-right" ng-click="cancelContactRequest(user)">
+                Cancel Contact Request
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading" style="font-size: 20px"><strong>Contacts</strong></div>
+      <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <th>Name</th>
+          <th>Distance</th>
+            <th>Options</th>
+          </tr>
+          <tr ng-repeat="user in myContacts">
+            <td><a ui-sref="profileView({userId: user.name})">
+              {{user.name}}
+            </a></td> 
+            <td>{{user.location}}</td>
+            <td>
+              <a ui-sref="contactHome" class="btn btn-danger pull-right" ng-click="removeContact(user)">
+                Remove Contact
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <div class="panel panel-default">
+      <div class="panel-heading" style="font-size: 20px"><strong>Suggested Contacts</strong></div>
+      <div class="panel-body">
+        <table class="table table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Distance</th>
+            <th>Tag Matches</th>
+            <th>Options</th>
+        </tr>
+        <tr ng-repeat="user in suggestedContacts">
+          <td><a ui-sref="profileView({userId: user.name})">
+            {{user.name}}
+          </a></td> 
+          <td>{{user.location}}</td>
+          <td>{{user.matchCount}}</td>
+            <td>
+              <a ui-sref="contactHome" class="btn btn-info pull-right" ng-click="sendContactRequest(user)">
+                Send Contact Request
+              </a>
+            </td>
+        </tr>
+      </table>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+</div>

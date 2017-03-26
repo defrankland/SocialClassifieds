@@ -1,0 +1,40 @@
+<div class="row" ng-init="getUserClassifieds();">
+<div class="col-sm-8 col-sm-offset-2">
+  <div id="form-container">
+    <div class="text-center">
+      <a ui-sref="adManagementForm.basicInfo" class="btn btn-primary">Create new Classified Ad</a>
+    </div>
+    
+    <div class="page-header"></div>
+    
+    <h2>My Classified Ads</h2>
+    <table class="table table-striped">
+    <tr>
+      <th>Title</th>
+      <th>Created</th>
+      <th>Expires</th>
+      <th>Options</th>
+    </tr>
+    <tr ng-repeat="ad in myAds">
+    <td><a ui-sref="adView({ad: ad, user:user})" ng-click="setCurrentAd(ad);">
+      {{ad.title}}
+    </a></td> 
+    <td>{{ad.created}}</td>
+    <td>{{ad.expiration}}</td>
+    <td>
+      <a ui-sref="adManagementForm.basicInfo" class="btn btn-info" ng-click="setCurrentAd(ad);">
+      Edit
+    </a>
+      <a ui-sref="adHome" class="btn btn-danger" ng-click="setCurrentAd(ad); deleteAd(ad);">
+      Delete
+    </a>
+    </td>
+    </tr>
+    </table>
+        
+    <form name="adManagementForm" ng-submit="submitForm(ad)">
+      <div id="form-views" ui-view></div>
+    </form>
+  </div>
+</div>
+</div>

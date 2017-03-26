@@ -1,0 +1,36 @@
+<div class="row" ng-init="getCurrentAd(); setAdType();">
+<div class="col-sm-8 col-sm-offset-2">
+    
+    <div class="panel panel-default">
+      <div class="panel-heading" style="font-size: 20px"><strong>{{currentAd.title}}</strong></div>
+      <div class="panel-body">
+        <img ng-src="{{currentAd.image}}" width="500px"/>
+        <p><h3>Posted By:</h3>
+          <a ui-sref="profileView({userId: currentAd.user})">
+            {{currentAd.user}}
+          </a>
+        <p><h3>Distance:</h3> {{currentAd.location}} miles away</p>
+        <p><h3>Type:</h3> {{currentAd.postType}}</p>
+        
+        <p>
+          <h3 ng-bind="Cost">{{Cost}}:</h3>
+          <label ng-if="Cost==='Price'">{{currentAd.price | currency}}</label>
+          <label ng-if="Cost==='Rate'">{{currentAd.rate | currency}}</label>
+        </p>
+        <p><h3>Quantity:</h3>{{currentAd.quantity}}</p>
+        <p><h3>Description:</h3>{{currentAd.body}}</p>
+        <p><h3>Street Address 1:</h3> {{currentAd.address1}}</p>
+        <p><h3>Street Address 2:</h3> {{currentAd.address2}}</p>
+        <p><h3>City:</h3> {{currentAd.city}}</p>
+        <p><h3>State:</h3> {{currentAd.state}}</p>
+        <p><h3>Zip:</h3> {{currentAd.zip}}</p>
+        <p><h3>Phone:</h3> {{currentAd.phone}}</p>
+        <p><h3>Email:</h3> {{currentAd.email}}</p>
+        <p><h3>Tags:</h3>
+          <tags-input ng-model="currentAd.tags" disabled="disabled" value="No tags found."></tags-input>
+        </p>
+      </div>
+    </div>
+  
+</div>
+</div>

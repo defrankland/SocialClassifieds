@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" type="image/png" href="/favicon-32x32.png"/>
+  <!-- JS-Public Libs -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.min.js"></script>
+  <script src="public/js/angular-ui-router.min.js"></script>
+  <link rel="stylesheet" href="public/css/ng-tags-input.min.css" />
+  <link rel="stylesheet" href="public/css/default.css" />
+  <script src="public/js/ng-tags-input.min.js"></script>
+  <script src="public/js/ngfile/ng-file-upload-shim.min.js"></script>
+  <script src="public/js/ngfile/ng-file-upload.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+  <script src="public/datatables/angular-datatables.min.js"></script>
+  <link rel="stylesheet" href="public/datatables/css/angular-datatables.min.css" />
+  <script src="public/datatables/plugins/bootstrap/angular-datatables.bootstrap.min.js"></script>
+  <link rel="stylesheet" href="public/datatables/plugins/bootstrap/datatables.bootstrap.min.css" />
+
+
+  <!-- Bootstrap -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+    
+  <!-- JS-Modules -->
+  <script src="public/js/md5.min.js"></script>
+  <script src="public/js/Main.js"></script>
+  <script src="public/js/login.js"></script>
+  <script src="public/js/UserProfile.js"></script>
+  <script src="public/js/adManagement.js"></script>
+  <script src="public/js/contactManagement.js"></script>
+  <script src="public/js/hash.js"></script>
+  
+</head>
+<body ng-app="mainModule">
+  <!-- <div class="container">
+    <h1 class="page-header"></h1>
+  </div> -->
+  
+  <nav class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
+    <div class="container-fluid" ng-controller="mainController">
+      <div class="navbar-header">
+        <a class="navbar-brand navbar-left" ui-sref="main">Social Classifieds</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="" ui-sref="main">View Classifieds</a></li>
+        <li><a href="" ui-sref="adHome" ng-show="getLoginState();">My Classifieds</a></li>
+        <li><a href="" ui-sref="contactHome" ng-show="getLoginState();">Find People</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" ng-show="getLoginState();">
+          <a href="#" data-toggle="dropdown" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"><img ng-src="{{ get().profileImage }}" ng-show="get().profileImage" class="img-rounded" width="28px" />&nbsp;&nbsp;{{ get().userName }} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="" ui-sref="userHome"><span class="glyphicon glyphicon-cog"></span> Account Settings</a></li>
+            <li><a href="" ui-sref="userProfile"><span class="glyphicon glyphicon-user"></span> Profile Settings</a></li>
+            <li><a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+          </ul>
+        </li>
+        <li><a href="" ng-click="login()" ng-show="!getLoginState();"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+      </ul>
+    </div>
+  </nav><br/>
+    
+  <div class="container">
+    <div ui-view></div>
+  </div>
+</body>
+</html>

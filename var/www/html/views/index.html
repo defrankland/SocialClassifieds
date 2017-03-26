@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+  
+  <!-- JS-Public Libs -->
+  <script src="//code.angularjs.org/1.4.0/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="public/css/ng-tags-input.min.css" />
+  <script src="public/js/ng-tags-input.min.js"></script>
+    
+  <!-- JS-Modules -->
+  <script src="public/js/md5.min.js"></script>
+  <script src="public/js/Main.js"></script>
+  <script src="public/js/login.js"></script>
+  <script src="public/js/UserProfile.js"></script>
+  <script src="public/js/adManagement.js"></script>
+  <script src="public/js/contactManagement.js"></script>
+  <script src="public/js/hash.js"></script>
+</head>
+<body ng-app="mainModule">
+  <div class="container">
+    <h1 class="page-header"></h1>
+  </div>
+  
+  <div class="col-md-10 col-md-offset-1">
+    <div id="status-buttons" class="btn-group btn-group-justified" ng-controller="mainController">
+      <a ui-sref="main" class="btn btn-primary">View Classifieds</a>
+      <a ui-sref="adHome" class="btn btn-primary" ng-show="getLoginState();">My Classifieds</a>
+      <a ui-sref="userHome" class="btn btn-primary" ng-show="getLoginState();">My Account</a>
+      <a ui-sref="contactHome" class="btn btn-primary" ng-show="getLoginState();">Find People</a>
+      <a ng-click="logout()" class="btn btn-primary" ng-show="getLoginState();">Logout</a>
+      <a ng-click="login()" class="btn btn-primary" ng-show="!getLoginState();">Login</a>
+    </div><br/>
+  </div>
+    
+  <div class="container">
+    <div ui-view></div>
+  </div>
+</body>
+</html>

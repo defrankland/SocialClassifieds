@@ -1,0 +1,21 @@
+<div class="row" ng-init="loadForm();">
+<div class="col-sm-8 col-sm-offset-2">
+  <div id="form-container">
+    <div class="page-header text-center">
+      <h2>Classified Ad</h2>
+      
+      <div id="status-buttons" class="btn-group btn-group-justified">
+        <a ui-sref=".basicInfo" class="btn btn-primary">Basic Info</a>
+        <a  ui-sref=".contactInfo" class="btn btn-primary" ng-disabled="userForm.$invalid">Contact Info</a>
+        <a  ui-sref=".media" class="btn btn-primary" ng-disabled="userForm.$invalid">Media</a>
+      </div>
+    </div>
+    
+    <form name="adManagementForm" ng-submit="submitForm(ad)">
+      <div id="form-views" ui-view></div>
+    </form>
+    
+    <!-- <pre> {{ad |json }}</pre> -->
+  </div>
+</div>
+</div>

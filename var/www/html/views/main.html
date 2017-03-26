@@ -1,0 +1,30 @@
+<div id="wrap" ng-init="getAllClassifieds()">
+  <div>
+    <table datatable="ng" id="searchTable" class="table table-striped table-hover table-bordered">
+      <thead>
+      <tr>
+          <th>User</th>
+          <th>Ad Type</th>
+          <th>Title</th>
+          <!-- <th>Body</th> -->
+          <th>Created</th>
+          <th>Expires</th>
+          <th>Quantity</th>
+          <th>Rate</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr style="cursor: pointer;" ng-repeat="ad in classifieds" ui-sref="adView({adId: ad.adId})">
+          <td>{{ ad.user }}</td>
+          <td>{{ ad.adType }}</td>
+          <td>{{ ad.title }}</td>
+          <!-- <td>{{ ad.body }}</td> -->
+          <td>{{ ad.created | date }}</td>
+          <td>{{ ad.expires | date }}</td>
+          <td>{{ ad.quantity }}</td>
+          <td>{{ ad.rate | currency }}</td>
+      </tr>
+      </tbody>
+  </table>
+  </div>
+</div>

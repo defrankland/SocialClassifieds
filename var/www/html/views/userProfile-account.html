@@ -1,0 +1,83 @@
+<!-- USERNAME -->
+<div class="form-group" ng-class="{ 'has-error' : userForm.userName.$invalid && userForm.userName.$touched && !userForm.userName.$pristine}">
+  <label>Username</label>
+  <input type="text" name="userName" class="form-control" ng-model="user.userName" ng-minlength="3" ng-maxlength="30" required username-available="user.userName">
+  <div class="help-block" ng-if="userForm.userName.$touched && userForm.userName.$dirty">
+    <div ng-messages="userForm.userName.$error">
+      <p ng-message="minlength">Username is too short</p>
+      <p ng-message="maxlength">Username is too long</p>
+      <p ng-message="required">Username is required</p>
+      <p ng-message="usernameExists">Username is already taken</p>
+    </div>
+  </div>
+  <div ng-if="userForm.$pending.usernameExists">Checking availability...</div>
+</div>
+
+<!-- PASSWORD -->
+<div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && userForm.password.$touched }">
+  <label>Password</label>
+  <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="6" ng-maxlength="15" hash-input required>
+  <div class="help-block" ng-messages="userForm.password.$error" ng-if="userForm.password.$touched">
+    <p ng-message="required">Password is required</p>
+    <p ng-message="minlength">Password is too short.</p>
+  </div>
+</div>
+
+<!-- VERIFY PASSWORD -->
+<div class="form-group" ng-class="{ 'has-error' : userForm.vpassword.$invalid && userForm.vpassword.$touched }">
+  <label>Verify Password</label>
+  <input type="password" name="vpassword" class="form-control" ng-model="user.vpassword" hash-input required data-password-verify="user.password">
+  <div class="help-block" ng-messages="userForm.vpassword.$error" ng-if="userForm.vpassword.$touched">
+    <p ng-message="passwordVerify">Password does not match.</p>
+  </div>
+</div>
+
+<!-- FIRST NAME -->
+<div class="form-group" ng-class="{ 'has-error' : userForm.firstName.$invalid && userForm.firstName.$touched }">
+    <label>First Name</label>
+    <input type="text" name="firstName" class="form-control" ng-model="user.firstName" required ng-maxlength="30">
+    <div class="help-block" ng-messages="userForm.firstName.$error" ng-if="userForm.firstName.$touched">
+      <p ng-message="required">First name is required</p>
+      <p ng-message="maxlength">First name must be 30 characters or less</p>
+    </div>
+</div>
+
+<!-- MIDDLE NAME -->
+<div class="form-group" ng-class="{ 'has-error' : userForm.middleName.$invalid && userForm.middleName.$touched }">
+  <label>Middle Name</label>
+  <input type="text" name="middleName" class="form-control" ng-model="user.middleName" ng-maxlength="30">
+  <div class="help-block" ng-messages="userForm.middleName.$error" ng-if="userForm.middleName.$touched">
+    <p ng-message="maxlength">Middle name must be 30 characters or less</p>
+  </div>
+</div>
+
+<!-- LAST NAME -->
+<div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && userForm.lastName.$touched }">
+  <label>Last Name</label>
+  <input type="text" name="lastName" class="form-control" ng-model="user.lastName" required ng-maxlength="30">
+  <div class="help-block" ng-messages="userForm.lastName.$error" ng-if="userForm.lastName.$touched">
+    <p ng-message="required">Last name is required</p>
+    <p ng-message="maxlength">Last name must be 30 characters or less</p>
+  </div>
+</div>
+    
+<!-- EMAIL -->
+<div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && userForm.email.$touched }">
+  <label>Email</label>
+  <input type="email" name="email" class="form-control" ng-model="user.email" required>
+  <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+    <p ng-message="required">Email is required</p>
+    <p ng-message="email">Enter a valid email</p>
+  </div>
+</div>
+
+<!-- CONTINUE FORM -->
+<div class="container form-group row">
+  <div class="col-sm-6">
+    <a ui-sref="userProfileForm.contact" class="btn btn-info" ng-disabled="userForm.$invalid">
+      Continue
+    </a>
+    
+    <button type="submit" class="btn btn-danger" ng-disabled="userForm.$invalid">Submit</button>
+  </div>
+</div>

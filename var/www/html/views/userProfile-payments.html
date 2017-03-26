@@ -1,0 +1,22 @@
+<div class="form-group">
+  Card Nickname<input class="form-control" type="text" placeholder="" ng-model="user.cardNickname"/> 
+  Card Holder Name<input class="form-control" type="text" placeholder="" ng-model="user.cardHolderName"/> 
+  Expiration<input class="form-control" type="date" placeholder="" ng-model="user.cardExpiration"/> 
+  Street Address<input class="form-control" type="text" placeholder="" ng-model="user.cardStreetAddress1"/> 
+  Street Address Line 2<input class="form-control" type="text" placeholder="" ng-model="user.cardStreetAddress2"/>
+  City<input class="form-control" type="text" placeholder="" ng-model="user.cardCity"/>
+  State<input class="form-control" type="text" placeholder="" ng-model="user.cardState"/>
+  Zip<input class="form-control" type="text" placeholder="" ng-model="user.cardZip"/><br/>
+  Phone<input class="form-control" type="text" placeholder="" ng-model="user.cardPhone"/><br/>
+</div>
+    
+<div class="container">
+  <div class="form-group row">
+    <div class="col-sm-6">
+        <a ui-sref="userProfileForm.contact" class="btn btn-info">
+        Back
+        </a>
+        <button type="submit" class="btn btn-danger">Submit</button>
+    </div>
+  </div>
+</div>
